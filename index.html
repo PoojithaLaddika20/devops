@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSecOps: Security Scans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9fafb;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p.description {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 2px dashed #007BFF;
+            background-color: #e8f4fd;
+            color: #007BFF;
+            font-size: 1.2em;
+            display: none;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>DevSecOps: Security Scans</h1>
+    <p class="description">
+        <strong>DevSecOps</strong> integrates security practices into the DevOps process, ensuring that security is 
+        a shared responsibility throughout the software development lifecycle. Security scans are essential 
+        to identify vulnerabilities, analyze code, and ensure compliance. This simulation demonstrates a 
+        basic security scan process that tests various aspects of a system, including vulnerability checks, 
+        dependency scans, and network security.
+    </p>
+    <button onclick="performSecurityScan()">Perform Security Scan</button>
+    <div id="output"></div>
+
+    <script>
+        function performSecurityScan() {
+            const output = document.getElementById('output');
+            output.style.display = "block";
+
+            // Simulating a security scan process
+            const results = [
+                { name: "Vulnerability Check", status: "Passed" },
+                { name: "Dependency Scan", status: "Passed" },
+                { name: "Code Analysis", status: "Failed" },
+                { name: "Network Security", status: "Passed" },
+                { name: "Configuration Review", status: "Passed" },
+            ];
+
+            // Displaying scan results
+            let resultText = "<h3>Security Scan Results:</h3><ul>";
+            results.forEach(item => {
+                const color = item.status === "Failed" ? "red" : "green";
+                resultText += `<li>${item.name}: <strong style="color:${color};">${item.status}</strong></li>`;
+            });
+            resultText += "</ul>";
+
+            output.innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
